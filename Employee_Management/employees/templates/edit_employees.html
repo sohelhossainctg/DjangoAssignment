@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+  {% for employee in data %}
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ forloop.counter }}. {{ employee.name }} </h4> <h5 class="card-title"> {{ employee.designation }} ( {{ employee.employee_id }}) </h5>
+        <p>
+            <a href="{% url 'update_employee' employee.id %}" class="btn btn-primary">Edit</a>
+          |
+            <a href="{% url 'delete_employee' employee.id %}" class="btn btn-danger">Delete</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}
